@@ -6,9 +6,40 @@
 - shell :: fish
 - terminal :: ghostty 
 
-I'm using GNU stow for this
+#+HTML: <details><summary>installed packages and applications</summary>
+- [[https://git-fork.com/][fork]]
+- [[https://virtualbuddy.app/][virtualbuddy]]
+- keka
+- [[https://sketch.com][sketch]]
+- [[https://rm2000.app][rm2000 tape recorder]]
+- nicotine+
+- transmit ftp client
+- netnewswire
+- mona for mastodon
+- hackit
+- iina
+#+HTML: </details>
 
-** Quick tips:
+* ~soulsilver~
+
+[[file:img/windows.jpeg]]
+
+- editor :: emacs
+- shell :: ps
+- terminal :: windows terminal
+
+#+HTML: <details><summary>installed packages and applications</summary>
+- wino mail
+- keyguard
+- [[https://git-fork.com/][fork]]
+- [[https://github.com/M2Team/Nanazip][nanazip]]
+- foobar2000
+- nicotine+
+- winscp ftp client
+- jpegview
+- mpc-hc
+#+HTML:</details>
+* Quick tips:
 
 - Don't symlink entire ~emacs.d~ folder, only symlink files
 
