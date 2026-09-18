@@ -2,7 +2,6 @@
 #+AUTHOR: Marcelo Mendez
 #+PROPERTY: header-args :tangle yes
 #+STARTUP: overview
-
 * About
 
 Welcome to my Emacs configuration! The entire init file is written in Org mode, to keep it literate and easy to modify! I got inspired from [[https://github.com/larstvei/dot-emacs][this config]], and you might see some similarities.
@@ -775,7 +774,7 @@ Dash board provides a nice welcome.
              dashboard-items '((bookmarks . 5)
      						 (projects . 15)
                               (recents  . 15)))
-
+       :config
        (dashboard-setup-startup-hook))
    #+end_src
 
