@@ -1032,12 +1032,7 @@ set custom themes as safe (so that we don't get annoyed by a prompt to trust our
     :demand t
     :init)
 
-      (use-package adwaita-dark-theme)
       (use-package doric-themes)
-      (use-package doom-themes
-        :ensure t
-        :init
-        (doom-themes-org-config))
       (require 'modus-themes)
 
       (require 'ef-themes)
