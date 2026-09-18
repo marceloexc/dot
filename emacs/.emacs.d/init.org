@@ -1556,6 +1556,17 @@ Having a web server available within Emacs
   			 '((go-mode) . ("gopls")))
 #+end_src
 
+*** C#
+
+#+begin_src emacs-lisp
+
+  (use-package csharp-mode
+    :mode "\\.cs\\.")
+
+  (add-to-list 'eglot-server-programs
+  			 '((csharp-mode) . ("csharp-ls")))
+#+end_src
+
 *** Embedded
 
 Arduino
