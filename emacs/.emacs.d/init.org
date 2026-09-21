@@ -718,10 +718,17 @@ use indent guides when programming!
   							  :weight 'normal))))
       (force-mode-line-update t)))
 
-  (defun set-eglot-inlay-annotation-font ()
-    "Set the font for Eglot inlay type hints."
+(defun set-eglot-inlay-annotation-font ()
+  "Set the font for Eglot inlay type hints."
+  (when (facep 'eglot-inlay-hint-face)
     (set-face-attribute 'eglot-inlay-hint-face nil
-                        :family "Sans Serif" :height 0.8 :slant 'italic :extend t))
+                        :family "Sans Serif"
+                        :height 0.8
+                        :slant 'italic
+                        :extend t)))
+
+(with-eval-after-load 'eglot
+  (set-eglot-inlay-annotation-font))
 
   (defun +my-set-custom-fonts ()
     "Set custom fonts based on the operating system."
@@ -1195,6 +1202,8 @@ Fixing macos scrolling....
        (company-dabbrev-downcase nil)          ; Case-sensitive suggestions
        (company-require-match 'never)          ; Allow arbitrary input
        (company-show-numbers t)                ; Show numbers for quick selection
+       (company-backends
+        '(company-capf company-files company-dabbrev-code company-etags company-keywords))
        (company-frontends                      ; Cleaner UI
         '(company-pseudo-tooltip-frontend      ; Default popup
           company-echo-metadata-frontend)))    ; Show docs in echo area
@@ -1299,16 +1308,16 @@ Install ~undo-tree~
 
 #+begin_src emacs-lisp
   (use-package eglot
-    :ensure t
     :pin "GNU ELPA"
+    :ensure t
+    :init
+    (setq eglot-extend-to-xref t
+  		eglot-autoshutdown t)
     :config
     (setq eglot-report-progress nil)
     (setq eglot-connect-timeout 300) 
-    (setq eglot-events-buffer-config '(:size 0 :format full))
-    ;; (setq eglot-events-buffer-size 0)
-    :init
-    (setq eglot-extend-to-xref t
-  		eglot-autoshutdown t))
+    (setq eglot-events-buffer-config '(:size 0 :format full)))
+
 
 
   (set-eglot-inlay-annotation-font)
