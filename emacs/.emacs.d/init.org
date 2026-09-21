@@ -1300,12 +1300,15 @@ Install ~undo-tree~
 #+begin_src emacs-lisp
   (use-package eglot
     :ensure t
+    :pin "GNU ELPA"
     :config
     (setq eglot-report-progress nil)
     (setq eglot-connect-timeout 300) 
     (setq eglot-events-buffer-config '(:size 0 :format full))
     ;; (setq eglot-events-buffer-size 0)
-    :init)
+    :init
+    (setq eglot-extend-to-xref t
+  		eglot-autoshutdown t))
 
 
   (set-eglot-inlay-annotation-font)
@@ -1483,7 +1486,7 @@ Having a web server available within Emacs
     :hook (kotlin-mode . eglot-ensure))
 
   (add-to-list 'eglot-server-programs
-               '((kotlin-mode) . ("kmp-lsp" "--stdio")))
+               '((kotlin-mode) . ("kotlin-lsp" "--stdio")))
 #+end_src
 
 *** Swift
