@@ -1953,6 +1953,15 @@ set org mode to automaitcally add UUID's to property drawers when exporting to i
 #+begin_src emacs-lisp
   (setq org-icalendar-store-UID t)
 #+end_src
+
+Use ~org-timegrid~
+#+begin_src emacs-lisp
+   (use-package org-timegrid
+        :vc (:url "https://github.com/Gleek/org-timegrid"
+      			:rev :newest))
+#+end_src
+
+
 ** Latex
 We set our default program for latex
 
