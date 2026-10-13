@@ -808,11 +808,11 @@ Remove some useless (to me) toolbar items
    'isearch-forward
    :help "Search")
 
-  ;; (tool-bar-add-item
-  ;;    "sort-criteria"
-  ;;    #'treemacs
-  ;;    'treemacs
-  ;;    :help "Toggle Treemacs Sidebar")
+  (tool-bar-add-item
+     "reveal"
+     #'reveal-in-folder
+     'reveal-in-folder
+     :help "Reveal Folder")
 
   (when (> emacs-major-version 28)
     (define-key global-map [menu-bar insert-file] nil)
