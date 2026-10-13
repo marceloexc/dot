@@ -323,6 +323,12 @@ dont startup emacs with such a small window:
 
   #+end_src
 
+automatically enable global-auto-revert-mode (useful for agents)
+
+#+begin_src emacs-lisp
+  (global-auto-revert-mode 1)
+#+end_src
+  
 Automatically enable line numbers in buffers everytime I enter a "programming" mode
 
 #+begin_src emacs-lisp
@@ -1660,6 +1666,14 @@ Having a web server available within Emacs
     (define-key eat-semi-char-mode-map (kbd "<backspace>") (kbd "C-h")))
     )
 #+end_src
+** LLMs / Agents
+
+I like ~agent-shell~ the most
+
+#+begin_src emacs-lisp
+  (use-package agent-shell
+    :ensure t)
+#+end_src
 * Word Processing
 ** Org
 
@@ -2105,12 +2119,6 @@ use ~pdf-tools~ instead of ~doc-view~
     (use-package easy-hugo
       :init
       (setq easy-hugo-server-flags "-D"))
-#+end_src
-* Chatbot & LLMs
-cant believe i need to have a separate heading for this now..
-
-#+begin_src emacs-lisp
-  (use-package gptel)
 #+end_src
 * global-scale-mode
 
