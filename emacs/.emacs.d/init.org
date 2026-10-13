@@ -2071,21 +2071,11 @@ add fragtog support
 use ~pdf-tools~ instead of ~doc-view~
 
 #+begin_src emacs-lisp
-  ;; https://github.com/vedang/pdf-tools/issues/353#issue-4263269430
-
-  (defun my/pdf-hook ()
-    (message "pdf-view-hook running")
-    (auto-revert-mode)
-    (setq-local cursor-type 'box)
-    (setq-local blink-cursor-blinks 0)
-    (blink-cursor-mode 1))
-
-  (use-package pdf-tools
-    :ensure t
-    :defer nil
-    :config
-    (pdf-loader-install)
-    :hook (pdf-view-mode . my/pdf-hook))
+  (when (version<= "30.1" emacs-version)
+    (setq package-vc-allow-build-commands t)
+    (use-package reader
+      :vc (:url "https://codeberg.org/MonadicSheep/emacs-reader"
+           :make "all")))
 #+end_src
 ** Markdown
 
